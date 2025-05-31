@@ -14,10 +14,13 @@ export const BaseNode = ({
     className = "",
     ...rest
 }) => {
-    const { setNodes } = useReactFlow();
+    const { setNodes, setEdges } = useReactFlow();
 
     const handleRemoveNode = () => {
         setNodes((prevNodes) => prevNodes.filter((node) => node.id !== id));
+        setEdges((prevEdges) =>
+            prevEdges.filter((edge) => edge.source !== id && edge.target !== id),
+        );
     };
 
     return (
