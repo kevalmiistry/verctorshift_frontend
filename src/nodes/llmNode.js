@@ -19,7 +19,7 @@ export const LLMNode = ({ id, data }) => {
             outputs={[{ id: `${id}-response` }]}
         >
             <div>
-                <span>This is a LLM.</span>
+                <span>LLM Runner.</span>
             </div>
         </BaseNode>
     );
