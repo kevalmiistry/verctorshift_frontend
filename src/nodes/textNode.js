@@ -1,7 +1,8 @@
 // textNode.js
 
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import { BaseNode } from "./BaseNode";
+import { Input } from "../components/ui/input";
 
 export const TextNode = ({ id, data }) => {
     const [currText, setCurrText] = useState(data?.text || "{{input}}");
@@ -11,17 +12,16 @@ export const TextNode = ({ id, data }) => {
     };
 
     return (
-        <div style={{ width: 200, height: 80, border: "1px solid black" }}>
-            <div>
-                <span>Text</span>
+        <BaseNode id={id} title="Text" outputs={[{ id: `${id}-output` }]}>
+            <div className="space-y-1">
+                <label className="text-slate-400">Text:</label>
+                <Input
+                    type="text"
+                    value={currText}
+                    onChange={handleTextChange}
+                    className="p-2 w-full h-auto !text-xs"
+                />
             </div>
-            <div>
-                <label>
-                    Text:
-                    <input type="text" value={currText} onChange={handleTextChange} />
-                </label>
-            </div>
-            <Handle type="source" position={Position.Right} id={`${id}-output`} />
-        </div>
+        </BaseNode>
     );
 };
