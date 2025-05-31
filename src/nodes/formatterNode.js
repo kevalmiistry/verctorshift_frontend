@@ -1,6 +1,6 @@
 import { BaseNode } from "./BaseNode";
 
-const FormatterNode = ({ id }) => {
+export const FormatterNode = ({ id }) => {
     return (
         <BaseNode
             id={id}
@@ -12,5 +12,3 @@ const FormatterNode = ({ id }) => {
         </BaseNode>
     );
 };
-
-export default FormatterNode;

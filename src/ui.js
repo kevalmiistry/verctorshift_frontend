@@ -11,10 +11,11 @@ import { LLMNode } from "./nodes/llmNode";
 import { OutputNode } from "./nodes/outputNode";
 import { TextNode } from "./nodes/textNode";
 import { ModelNode } from "./nodes/modelNode";
+import { ConditionNode } from "./nodes/conditionNode";
+import { FormatterNode } from "./nodes/formatterNode";
+import { LoggerNode } from "./nodes/loggerNode";
 
 import "reactflow/dist/style.css";
-import { ConditionNode } from "./nodes/conditionNode";
-import FormatterNode from "./nodes/formatterNode";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -26,6 +27,7 @@ const nodeTypes = {
     model: ModelNode,
     condition: ConditionNode,
     formatter: FormatterNode,
+    logger: LoggerNode,
 };
 
 const selector = (state) => ({
