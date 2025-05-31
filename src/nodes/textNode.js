@@ -20,11 +20,6 @@ export const TextNode = ({ id, data }) => {
         }
     }, [currText]);
 
-    // Prevent React Flow from capturing these events
-    const handleMouseEvents = (e) => {
-        e.stopPropagation();
-    };
-
     return (
         <BaseNode id={id} title="Text" outputs={[{ id: `${id}-output` }]}>
             <label className="flex flex-col gap-1">
