@@ -33,6 +33,7 @@ export const BaseNode = ({
                     position={Position.Left}
                     id={input.id}
                     style={{ top: `${(idx + 1) * (100 / (inputs.length + 1))}%` }}
+                    {...input}
                 />
             ))}
 
@@ -56,6 +57,7 @@ export const BaseNode = ({
                     position={Position.Right}
                     id={output.id}
                     style={{ top: `${(idx + 1) * (100 / (outputs.length + 1))}%` }}
+                    {...output}
                 />
             ))}
         </div>

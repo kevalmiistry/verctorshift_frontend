@@ -3,7 +3,7 @@
 import { Handle } from "reactflow";
 import { cn } from "../lib/utils";
 
-export const CustomHandle = ({ type, position, id, style = {} }) => {
+export const CustomHandle = ({ type, position, id, style = {}, label = "" }) => {
     return (
         <Handle
             type={type}
@@ -14,9 +14,20 @@ export const CustomHandle = ({ type, position, id, style = {} }) => {
                 {
                     "!-translate-x-1/2 !left-0": type === "target",
                     "!translate-x-1/2 !right-0": type === "source",
+                    "after:content-[var(--handle-label)] after:absolute after:top-1/2 after:-translate-y-1/2":
+                        !!label,
+                    "after:!-left-full after:-translate-x-3/4": label && type === "target",
+                    "after:!-right-full after:translate-x-3/4": label && type === "source",
                 },
             )}
-            style={style}
+            style={{
+                ...style,
+                ...(label
+                    ? {
+                          "--handle-label": `"${label}"`,
+                      }
+                    : {}),
+            }}
         />
     );
 };
