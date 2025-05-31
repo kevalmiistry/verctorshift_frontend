@@ -13,15 +13,15 @@ export const TextNode = ({ id, data }) => {
 
     return (
         <BaseNode id={id} title="Text" outputs={[{ id: `${id}-output` }]}>
-            <div className="space-y-1">
-                <label className="text-slate-400">Text:</label>
+            <label className="flex flex-col gap-1">
+                <span className="text-slate-400">Text:</span>
                 <Input
                     type="text"
                     value={currText}
                     onChange={handleTextChange}
                     className="p-2 w-full h-auto !text-xs"
                 />
-            </div>
+            </label>
         </BaseNode>
     );
 };

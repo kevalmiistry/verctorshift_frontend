@@ -87,8 +87,8 @@ export const ModelNode = ({ id }) => {
     return (
         <BaseNode id={id} title="LLM" outputs={[{ id: `${id}-model` }]}>
             <div className="space-y-2">
-                <div className="space-y-1">
-                    <label className="text-slate-400">Provider</label>
+                <label className="flex flex-col gap-1">
+                    <span className="text-slate-400">Provider</span>
                     <Select value={provider} onValueChange={handleProviderChange}>
                         <SelectTrigger className="w-full p-2 h-auto !text-xs">
                             <SelectValue placeholder="Select Provider" />
@@ -112,10 +112,10 @@ export const ModelNode = ({ id }) => {
                             ))}
                         </SelectContent>
                     </Select>
-                </div>
+                </label>
 
-                <div className="space-y-1">
-                    <label className="text-slate-400">Model</label>
+                <label className="flex flex-col gap-1">
+                    <span className="text-slate-400">Model</span>
                     <Select value={model} onValueChange={setModel} disabled={!provider}>
                         <SelectTrigger className="w-full p-2 h-auto !text-xs">
                             <SelectValue placeholder="Select Model" />
@@ -132,7 +132,7 @@ export const ModelNode = ({ id }) => {
                             ))}
                         </SelectContent>
                     </Select>
-                </div>
+                </label>
             </div>
         </BaseNode>
     );

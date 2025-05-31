@@ -23,8 +23,8 @@ export const LoggerNode = ({ id }) => {
 
     return (
         <BaseNode id={id} title="Logger" inputs={[{ id: `${id}-response` }]}>
-            <div className="space-y-1">
-                <label className="text-slate-400">Logger DB</label>
+            <label className="flex flex-col gap-1">
+                <span className="text-slate-400">Logger DB</span>
                 <Select value={loggerDB} onValueChange={setLoggerDB}>
                     <SelectTrigger className="p-2 h-auto !text-xs w-full">
                         <SelectValue placeholder="Select DB" />
@@ -41,7 +41,7 @@ export const LoggerNode = ({ id }) => {
                         ))}
                     </SelectContent>
                 </Select>
-            </div>
+            </label>
         </BaseNode>
     );
 };

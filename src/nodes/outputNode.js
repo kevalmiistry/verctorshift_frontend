@@ -28,17 +28,18 @@ export const OutputNode = ({ id, data }) => {
     return (
         <BaseNode id={id} title="Output" inputs={[{ id: `${id}-value` }]}>
             <div className="space-y-2">
-                <div className="space-y-1">
-                    <label className="text-slate-400 ">Name:</label>
+                <label className="flex flex-col gap-1">
+                    <span className="text-slate-400">Name:</span>
                     <Input
                         type="text"
                         value={currName}
                         onChange={handleNameChange}
                         className="p-2 w-full h-auto !text-xs"
                     />
-                </div>
-                <div className="space-y-1">
-                    <label className="text-slate-400 ">Type:</label>
+                </label>
+
+                <label className="flex flex-col gap-1">
+                    <span className="text-slate-400">Type:</span>
                     <Select value={outputType} onValueChange={handleTypeChange}>
                         <SelectTrigger className="w-full p-2 h-auto !text-xs">
                             <SelectValue placeholder="Select Type" className="" />
@@ -52,7 +53,7 @@ export const OutputNode = ({ id, data }) => {
                             </SelectItem>
                         </SelectContent>
                     </Select>
-                </div>
+                </label>
             </div>
         </BaseNode>
     );
