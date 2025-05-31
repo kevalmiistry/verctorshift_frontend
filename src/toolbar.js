@@ -11,6 +11,7 @@ export const PipelineToolbar = () => {
             <DraggableNode type="text" label="Text" />
             <DraggableNode type="model" label="Model" />
             <DraggableNode type="condition" label="Condition" />
+            <DraggableNode type="formatter" label="Formatter" />
         </div>
     );
 };

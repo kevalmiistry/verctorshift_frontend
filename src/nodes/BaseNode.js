@@ -22,7 +22,9 @@ export const BaseNode = ({
 
     return (
         <div
-            className={cn("min-w-52 min-h-28 p-2 rounded-xl border bg-white shadow text-xs")}
+            className={cn(
+                "min-w-52 min-h-28 p-2 rounded-xl border bg-white shadow text-xs flex flex-col",
+            )}
             {...rest}
         >
             {/* Input Handles */}
@@ -47,7 +49,7 @@ export const BaseNode = ({
             </div>
 
             {/* Children (custom content) */}
-            <div>{children}</div>
+            {children}
 
             {/* Output Handles */}
             {outputs.map((output, idx) => (

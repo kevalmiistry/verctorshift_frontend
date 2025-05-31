@@ -14,6 +14,7 @@ import { ModelNode } from "./nodes/modelNode";
 
 import "reactflow/dist/style.css";
 import { ConditionNode } from "./nodes/conditionNode";
+import FormatterNode from "./nodes/formatterNode";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -24,6 +25,7 @@ const nodeTypes = {
     text: TextNode,
     model: ModelNode,
     condition: ConditionNode,
+    formatter: FormatterNode,
 };
 
 const selector = (state) => ({

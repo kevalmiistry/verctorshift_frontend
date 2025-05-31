@@ -18,7 +18,7 @@ export const LLMNode = ({ id, data }) => {
             ]}
             outputs={[{ id: `${id}-response` }]}
         >
-            <div>
+            <div className="flex-1 flex justify-center items-center">
                 <span>LLM Runner.</span>
             </div>
         </BaseNode>
