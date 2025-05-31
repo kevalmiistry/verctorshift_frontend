@@ -13,6 +13,7 @@ import { TextNode } from "./nodes/textNode";
 import { ModelNode } from "./nodes/modelNode";
 
 import "reactflow/dist/style.css";
+import { ConditionNode } from "./nodes/conditionNode";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -22,6 +23,7 @@ const nodeTypes = {
     customOutput: OutputNode,
     text: TextNode,
     model: ModelNode,
+    condition: ConditionNode,
 };
 
 const selector = (state) => ({
