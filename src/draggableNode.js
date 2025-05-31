@@ -1,5 +1,8 @@
 // draggableNode.js
 
+import { buttonVariants } from "./components/ui/button";
+import { cn } from "./lib/utils";
+
 export const DraggableNode = ({ type, label }) => {
     const onDragStart = (event, nodeType) => {
         const appData = { nodeType };
@@ -10,23 +13,18 @@ export const DraggableNode = ({ type, label }) => {
 
     return (
         <div
-            className={type}
+            className={cn(
+                type,
+                buttonVariants({
+                    variant: "outline",
+                    className: "aspect-square h-auto w-20 text-slate-600 cursor-grab",
+                }),
+            )}
             onDragStart={(event) => onDragStart(event, type)}
             onDragEnd={(event) => (event.target.style.cursor = "grab")}
-            style={{
-                cursor: "grab",
-                minWidth: "80px",
-                height: "60px",
-                display: "flex",
-                alignItems: "center",
-                borderRadius: "8px",
-                backgroundColor: "#1C2536",
-                justifyContent: "center",
-                flexDirection: "column",
-            }}
             draggable
         >
-            <span style={{ color: "#fff" }}>{label}</span>
+            {label}
         </div>
     );
 };

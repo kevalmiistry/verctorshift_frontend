@@ -4,13 +4,11 @@ import { SubmitButton } from "./submit";
 
 function App() {
     return (
-        <section className="h-screen flex items-center justify-center">
-            <div className="w-[90%] border rounded-xl shadow">
-                <PipelineToolbar />
-                <PipelineUI />
-                <SubmitButton />
-            </div>
-        </section>
+        <main className="h-screen flex flex-col overflow-hidden">
+            <PipelineToolbar />
+            <PipelineUI />
+            <SubmitButton />
+        </main>
     );
 }
 
