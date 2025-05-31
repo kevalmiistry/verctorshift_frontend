@@ -1,8 +1,9 @@
 // BaseNode.js
 
-import { Position } from "reactflow";
+import { Position, useReactFlow } from "reactflow";
 import { cn } from "../lib/utils";
 import { CustomHandle } from "./CustomHandle";
+import { CrossCircledIcon } from "@radix-ui/react-icons";
 
 export const BaseNode = ({
     id,
@@ -13,6 +14,12 @@ export const BaseNode = ({
     className = "",
     ...rest
 }) => {
+    const { setNodes } = useReactFlow();
+
+    const handleRemoveNode = () => {
+        setNodes((prevNodes) => prevNodes.filter((node) => node.id !== id));
+    };
+
     return (
         <div
             className={cn("min-w-52 min-h-28 p-2 rounded-xl border bg-white shadow text-xs")}
@@ -30,7 +37,13 @@ export const BaseNode = ({
             ))}
 
             {/* Title */}
-            <p className="text-slate-600 font-medium mb-2 text-sm">{title}</p>
+            <div className="flex items-center justify-between mb-2">
+                <p className="text-slate-600 font-medium text-sm">{title}</p>
+
+                <button className="hover:text-red-500" onClick={handleRemoveNode}>
+                    <CrossCircledIcon />
+                </button>
+            </div>
 
             {/* Children (custom content) */}
             <div>{children}</div>
