@@ -1,7 +1,15 @@
 // inputNode.js
 
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import { BaseNode } from "./BaseNode";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "../components/ui/select";
+import { Input } from "../components/ui/input";
 
 export const InputNode = ({ id, data }) => {
     const [currName, setCurrName] = useState(
@@ -13,29 +21,39 @@ export const InputNode = ({ id, data }) => {
         setCurrName(e.target.value);
     };
 
-    const handleTypeChange = (e) => {
-        setInputType(e.target.value);
+    const handleTypeChange = (value) => {
+        setInputType(value);
     };
 
     return (
-        <div style={{ width: 200, height: 80, border: "1px solid black" }}>
-            <div>
-                <span>Input</span>
+        <BaseNode id={id} title="Input" outputs={[{ id: `${id}-value` }]}>
+            <div className="space-y-2">
+                <div className="space-y-1">
+                    <label className="text-slate-400 ">Name:</label>
+                    <Input
+                        type="text"
+                        value={currName}
+                        onChange={handleNameChange}
+                        className="p-2 w-full h-auto !text-xs"
+                    />
+                </div>
+                <div className="space-y-1">
+                    <label className="text-slate-400 ">Type:</label>
+                    <Select value={inputType} onValueChange={handleTypeChange}>
+                        <SelectTrigger className="w-full p-2 h-auto !text-xs">
+                            <SelectValue placeholder="Select Type" className="" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="Text" className="text-xs cursor-pointer">
+                                Text
+                            </SelectItem>
+                            <SelectItem value="File" className="text-xs cursor-pointer">
+                                File
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
             </div>
-            <div>
-                <label>
-                    Name:
-                    <input type="text" value={currName} onChange={handleNameChange} />
-                </label>
-                <label>
-                    Type:
-                    <select value={inputType} onChange={handleTypeChange}>
-                        <option value="Text">Text</option>
-                        <option value="File">File</option>
-                    </select>
-                </label>
-            </div>
-            <Handle type="source" position={Position.Right} id={`${id}-value`} />
-        </div>
+        </BaseNode>
     );
 };

@@ -9,10 +9,13 @@ export const CustomHandle = ({ type, position, id, style = {} }) => {
             type={type}
             position={position}
             id={id}
-            className={cn("!w-3 !h-3 !bg-white !border !border-slate-600 !rounded-full ", {
-                "!-translate-x-1/2 !left-0": type === "target",
-                "!translate-x-1/2 !right-0": type === "source",
-            })}
+            className={cn(
+                "!w-3 !h-3 hover:scale-125 transition-all !bg-white !border !border-slate-600 !rounded-full ",
+                {
+                    "!-translate-x-1/2 !left-0": type === "target",
+                    "!translate-x-1/2 !right-0": type === "source",
+                },
+            )}
             style={style}
         />
     );
