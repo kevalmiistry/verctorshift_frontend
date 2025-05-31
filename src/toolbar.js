@@ -13,6 +13,7 @@ export const PipelineToolbar = () => {
             <DraggableNode type="condition" label="Condition" />
             <DraggableNode type="formatter" label="Formatter" />
             <DraggableNode type="logger" label="Logger" />
+            <DraggableNode type="apiCall" label="API Call" />
         </div>
     );
 };

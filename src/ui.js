@@ -16,6 +16,7 @@ import { FormatterNode } from "./nodes/formatterNode";
 import { LoggerNode } from "./nodes/loggerNode";
 
 import "reactflow/dist/style.css";
+import { ApiCallNode } from "./nodes/apiCallNode";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -28,6 +29,7 @@ const nodeTypes = {
     condition: ConditionNode,
     formatter: FormatterNode,
     logger: LoggerNode,
+    apiCall: ApiCallNode,
 };
 
 const selector = (state) => ({
