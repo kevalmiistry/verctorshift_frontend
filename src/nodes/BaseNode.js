@@ -27,6 +27,7 @@ export const BaseNode = ({
         <div
             className={cn(
                 "min-w-52 min-h-28 p-2 rounded-xl border bg-white shadow text-xs flex flex-col",
+                className,
             )}
             {...rest}
         >
