@@ -17,6 +17,7 @@ import { LoggerNode } from "./nodes/loggerNode";
 
 import "reactflow/dist/style.css";
 import { ApiCallNode } from "./nodes/apiCallNode";
+import CustomEdge from "./nodes/CustomEdge";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -30,6 +31,9 @@ const nodeTypes = {
     formatter: FormatterNode,
     logger: LoggerNode,
     apiCall: ApiCallNode,
+};
+const edgeTypes = {
+    customEdge: CustomEdge,
 };
 
 const selector = (state) => ({
@@ -106,6 +110,7 @@ export const PipelineUI = () => {
                     onDragOver={onDragOver}
                     onInit={setReactFlowInstance}
                     nodeTypes={nodeTypes}
+                    edgeTypes={edgeTypes}
                     proOptions={proOptions}
                     snapGrid={[gridSize, gridSize]}
                     connectionLineType="smoothstep"

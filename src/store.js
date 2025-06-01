@@ -35,7 +35,7 @@ export const useStore = create((set, get) => ({
             edges: addEdge(
                 {
                     ...connection,
-                    type: "smoothstep",
+                    type: "customEdge",
                     animated: true,
                     markerEnd: { type: MarkerType.Arrow, height: "20px", width: "20px" },
                 },
